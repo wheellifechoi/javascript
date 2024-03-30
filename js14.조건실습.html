@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ body{
+      margin:0;
+    }
+
+    .top-nav{
+      background:lightgrey;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px;
+    }
+
+    .top-nav li
+    {
+      display: inline-block;
+      padding: 0 10px;
+    }
+
+    .down-nav{
+      background: black;
+      color:white;
+      display: none;
+    }
+
+    .down-nav div{
+      padding: 0 15px;
+    }
+
+    .down-nav ul{
+      padding:0;
+    }
+
+    .down-nav li{
+      list-style-type: none;
+    }
+</style>
+<body>
+    <div class="top-nav">
+        <h2 id="top-logo">로고</h2>
+        <ul id="top-show-down">
+          <li>Coffee</li>
+          <li>Latte</li>
+          <li>etc</li>
+        </ul>
+      </div>
+      <div class="down-nav">
+        <div>
+          <h3>Coffee</h3>
+          <ul>
+            <li>아메리카노</li>
+            <li>콜드브루</li>
+            <li>...</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Latte</h3>
+          <ul>
+            <li>카페라떼</li>
+            <li>콜드브루라떼</li>
+            <li>...</li>
+          </ul>
+        </div>
+      </div>
+      <script>
+          var 상태체크 = false
+    // HTML에서 top-logo라는 아이디를 찾아서 클릭이벤트를 줘라
+    document.getElementById('top-logo').addEventListener('click', function(){
+      // 콜백함수 : 매개변수로 사용되는 함수
+      // 만약에 상태가 안보여주는 상태면 보여주게바꿔라 (flex)
+      // 그게 아니라면(보여주는 상태라면) 안보여주게바꿔라 (none)
+      if(상태체크 === false){
+        // .down-nav 를 display:flex 로 
+        // + 상태체크
+        document.querySelector('.down-nav').style.display = 'flex'
+        상태체크 = true
+      }
+      else
+      {
+        // .down-nav 를 display:none 으로
+        // + 상태체크
+        document.querySelector('.down-nav').style.display = 'none'
+        상태체크 = false
+      }
+    })
+// HTML에서 top-show-down라는 아이디를 찾아서 마우스오버 이벤트를 줘라
+    // flex
+    document.getElementById('top-show-down').addEventListener('mouseover', function(){
+      if(상태체크 === false){
+        document.querySelector('.down-nav').style.display = 'flex'
+        상태체크 = true
+      }
+    })
+
+    // HTML에서 top-show-down라는 아이디를 찾아서 마우스리브 이벤트를 줘라
+    // none
+    document.getElementById('top-show-down').addEventListener('mouseleave', function(){
+      if(상태체크 === true){
+        document.querySelector('.down-nav').style.display = 'none'
+        상태체크 = false
+      }
+    })
+
+    
+      </script>   
+    
+</body>
+</html>

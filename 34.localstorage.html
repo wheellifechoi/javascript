@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬스토리지</title>
+</head>
+<body>
+ 
+    
+    <script>
+        // 무언가 값을 저장하고 싶다면 '변수'
+        //변수는 새로고침을 하면없어짐
+        var 변수 ='저장하고 싶은 글자'
+        // 페이지를 새로고침을 하거나 새로 열었을때에도 유지하고 싶은 데이터가 있다?
+        // 웹에서 제공하는 localstolrage를 활용할 수 있음
+        변수 = localstorage.getItem('이름')
+        console.log(변수)
+        
+        
+        //localstorage.setItem('키', '170.0')
+        //localstorage.removeItem('키')
+
+        localStorage.setItem('이름')
+    </script>
+</body>
+</html>
